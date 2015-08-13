@@ -2,6 +2,7 @@ var fmt = require('util').format;
 var fs = require('fs');
 var _ = require('lodash');
 var async = require('async');
+var npa = require('npm-package-arg');
 
 var unathenticatedRouteConfig = {
   config: {
@@ -134,9 +135,7 @@ var publicRoutes = [
   }, {
     path: "/package/{package}/tutorial",
     method: "GET",
-    handler: function(request, reply){
-      reply.view('package/tutorial');
-    }
+    handler: require('../handlers/tutorial')
   }, {
     paths: [
       "/package/{package}/collaborators",
