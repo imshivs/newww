@@ -2,7 +2,6 @@ var fmt = require('util').format;
 var fs = require('fs');
 var _ = require('lodash');
 var async = require('async');
-var npa = require('npm-package-arg');
 
 var unathenticatedRouteConfig = {
   config: {
@@ -132,8 +131,12 @@ var publicRoutes = [
     path: "/enterprise/license-error",
     method: "GET",
     handler: require('../facets/enterprise/license-error')
+  // }, {
+  //   path: "/package/{package}/tutorial",
+  //   method: "GET",
+  //   handler: require('../handlers/tutorial')
   }, {
-    path: "/package/{package}/tutorial",
+    path: "/package/{user}/{package}/tutorial",
     method: "GET",
     handler: require('../handlers/tutorial')
   }, {

@@ -61,6 +61,7 @@ exports.show = function(request, reply) {
       // unpaid collaborator
       if (err.statusCode === 402) {
         reply.redirect('/settings/billing?package=' + name);
+        
         return;
       }
 
